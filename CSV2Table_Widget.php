@@ -1,4 +1,6 @@
 <?php
+setlocale(LC_ALL, 'ja_JP.utf-8');
+
 class Widget_CSS2Table extends WP_Widget {
         /**
          * 初期化処理（ウィジェットの各種設定）を行います。
@@ -106,10 +108,9 @@ class Widget_CSS2Table extends WP_Widget {
                                 $numOfFields = count($data);
                                 echo '<tr class="tr">';
                                 foreach ($data as $col) {
-                                        echo '<td class="td">'. $col, '</td>', PHP_EOL;
+                                        echo '<td class="td">'. sanitize_text_field( $col ), '</td>', PHP_EOL;
                                 }
                                 echo '</tr>';
-                                $row++;
                         }
                         echo '</tbody>';
                         echo '</table>';
